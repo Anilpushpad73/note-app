@@ -214,7 +214,7 @@ backend/
 .
 .
 .
-├── frontend
+frontend
 ├──src/
   ├── components/           # Reusable components
   │   ├── AddNoteModal.tsx    # Modal for creating new notes
