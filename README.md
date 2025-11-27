@@ -22,7 +22,7 @@ A modern, feature-rich note-taking application built with React, Redux, and Fram
 - **Python 3.10**  
 - **FastAPI**  
 - **Mongodb Atlas**  
-- 
+- JWT authentication
 - **Pydantic (data validation)**
   
 ### State Management & Data Fetching
