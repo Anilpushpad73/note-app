@@ -40,7 +40,7 @@ A modern, feature-rich note-taking application built with React, Redux, and Fram
 - **React Router DOM** - Client-side routing
 
 ## Installation & Setup
-
+#### Frontend
 ### Prerequisites
 - Node.js (v16 or higher)
 - npm or yarn package manager
