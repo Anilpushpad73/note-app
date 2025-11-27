@@ -163,7 +163,7 @@ JWT_EXPIRY_MINUTES=60
 CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173,http://127.0.0.1:8000,http://localhost:8000
 ```
 
-if you face issue still
+If you still face issues, check it
 ```bash
 1 Open VS Code in the project folder.
 
