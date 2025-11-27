@@ -3,6 +3,43 @@
 A modern, feature-rich note-taking application built with React, Redux, and Framer Motion. This application provides a clean, intuitive interface for creating, editing, and managing notes with a rich text editor.
 ## All screenshoot:
 
+### Screenshots
+
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+
+  <div>
+    <img src="https://drive.google.com/uc?id=1U00SpyYxnJNPn5LDO6Z3L7vEeT89eud4" alt="typescript" width="250"/>
+    <p align="center">Home</p>
+  </div>
+
+  <div>
+    <img src="https://drive.google.com/uc?id=1URo_po-Ld3RfWcLxfKPXiM0gDF3VpSYf" alt="signin" width="250"/>
+    <p align="center">Signin</p>
+  </div>
+
+  <div>
+    <img src="https://drive.google.com/uc?id=1Q8RptQuMXinYPrE_zmJAS1R7enj37gyx" alt="note" width="250"/>
+    <p align="center">Note</p>
+  </div>
+
+  <div>
+    <img src="https://drive.google.com/uc?id=1QEmcO9zyeGx-iFvH92DbLm9XGHlCv-Gb" alt="editnote" width="250"/>
+    <p align="center">Edit Note</p>
+  </div>
+
+  <div>
+    <img src="https://drive.google.com/uc?id=15MiRWj9AsJLlu0i7ilLJEm91jeEpSl9y" alt="about" width="250"/>
+    <p align="center">About</p>
+  </div>
+
+  <div>
+    <img src="https://drive.google.com/uc?id=1X3ma3iG_BaW7mU4XoKTKVvFRE3RQtDri" alt="signup" width="250"/>
+    <p align="center">Signup</p>
+  </div>
+
+</div>
+
+
 #### signup
 <div>
    <img src="https://drive.google.com/uc?id=1U00SpyYxnJNPn5LDO6Z3L7vEeT89eud4" alt="typescript" />
@@ -23,14 +60,14 @@ A modern, feature-rich note-taking application built with React, Redux, and Fram
    <img src="https://drive.google.com/uc?id=1QEmcO9zyeGx-iFvH92DbLm9XGHlCv-Gb" alt="typescript" />
 </div>
 
-#### signup
+#### About
 <div>
-   <img src="https://drive.google.com/uc?id=1U00SpyYxnJNPn5LDO6Z3L7vEeT89eud4" alt="typescript" />
+   <img src="https://drive.google.com/uc?id=15MiRWj9AsJLlu0i7ilLJEm91jeEpSl9y" alt="typescript" />
 </div>
 
 #### signup
 <div>
-   <img src="https://drive.google.com/uc?id=1U00SpyYxnJNPn5LDO6Z3L7vEeT89eud4" alt="typescript" />
+   <img src="https://drive.google.com/uc?id=1X3ma3iG_BaW7mU4XoKTKVvFRE3RQtDri" alt="typescript" />
 </div>
 
 
