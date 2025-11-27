@@ -40,12 +40,12 @@ A modern, feature-rich note-taking application built with React, Redux, and Fram
 - **React Router DOM** - Client-side routing
 
 ## Installation & Setup
-#### Frontend
-### Prerequisites
+## Frontend
+#### Prerequisites
 - Node.js (v16 or higher)
 - npm or yarn package manager
 
-### Steps to Run Locally
+#### Steps to Run Locally
 
 1. **Clone the repository or navigate to the project directory**
    ```bash
@@ -73,32 +73,132 @@ A modern, feature-rich note-taking application built with React, Redux, and Fram
    ```bash
    npm run preview
    ```
+6. **.env file**
+   ```bash
+   VITE_API_URL=http://127.0.0.1:8000
+   ```
+## Backend 
+ **Set up Python backend**
+**Navigate into the **backend** folder**
+ ```bash
+   cd backend
+   ```
+**Create and Activate Virtual Environment if not present**
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+If successful, your terminal prompt will look like:
 
+(venv) C:\Users\Anil\Downloads\project\backend>
+
+**Install Dependencies**:
+**Install  virtual environment if not install:**
+
+```bash
+
+( use pip install -r requirements.txt if the file is present.)
+otherwise first create then add this file into it
+fastapi==0.115.4
+uvicorn[standard]==0.32.0
+pydantic==2.9.2
+pydantic-core==2.23.4
+python-dotenv==1.0.1
+motor==3.6.0
+passlib[bcrypt]==1.7.4
+PyJWT==2.9.0
+python-multipart==0.0.9
+dnspython==2.7.0
+watchfiles==1.1.0
+
+if you face issue still then check it
+bcrypt==4.0.1
+email-validator==2.3.0
+pydantic-settings==2.12.0
+
+```
+ ## .env file
+ ```bash
+MONGO_URL=mongodb+srv://<username>:<password>@clustur.iawjv6k.mongodb.net/?appName=keepNotes&retryWrites=true&w=majority
+JWT_SECRET=jhjgcjhvkghvkjhgbjkhbvcxzasdfghjkl
+JWT_ALGORITHM=HS256
+JWT_EXPIRY_MINUTES=60
+CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173,http://127.0.0.1:8000,http://localhost:8000
+```
+
+if you face issue in flask like(flask is not resolve)
+```bash
+1 Open VS Code in the project folder.
+
+2 Press Ctrl + Shift + P → type Python: Select Interpreter.
+
+3 At the bottom, click Enter interpreter path → then Find….
+
+4 Navigate to:
+
+C:\Users\Anil\Downloads\project\backend\venv\Scripts\
+Select python.exe (⚠ not pythonw.exe).
+```
+run commands in a separate terminal
+   ```bash
+   cd backend
+   python -m uvicorn main:app --reload --port 8000
+   ```
+   The backend will run on ` http://127.0.0.1:8000`
+
+   
 ## Project Structure
 
 ```
-src/
-├── components/           # Reusable components
-│   ├── AddNoteModal.tsx    # Modal for creating new notes
-│   ├── EditNoteModal.tsx   # Modal for editing existing notes
-│   ├── Navigation.tsx      # Top navigation bar
-│   ├── NoteCard.tsx        # Individual note card display
-│   └── ProtectedRoute.tsx  # Route wrapper for authentication
-├── pages/               # Page components
-│   ├── About.tsx          # About page
-│   ├── Account.tsx        # User account page
-│   ├── Login.tsx          # Login page
-│   ├── Notes.tsx          # Main notes dashboard
-│   └── Signup.tsx         # Registration page
-├── store/               # Redux store configuration
-│   ├── slices/
-│   │   ├── authSlice.ts   # Authentication state
-│   │   └── notesSlice.ts  # Notes state
-│   ├── hooks.ts           # Typed Redux hooks
-│   └── store.ts           # Store configuration
-├── App.tsx              # Main app component with routing
-├── main.tsx             # Application entry point
-└── index.css            # Global styles
+backend/
+├── __pycache__/
+│   ├── config.cpython-312.pyc
+│   ├── db.cpython-312.pyc
+│   └── main.cpython-312.pyc
+├── models/
+│   ├── __pycache__/
+│   └── schemas.py
+├── routes/
+│   ├── __pycache__/
+│   ├── auth_routes.py
+│   └── notes_routes.py
+├── utils/
+│   ├── __pycache__/
+│   ├── auth.py
+│   └── dependencies.py
+├── venv/
+├── .env
+├── config.py
+├── db.py
+├── main.py
+├── README.md
+├── requirements.txt
+.
+.
+.
+├── frontend
+├──src/
+  ├── components/           # Reusable components
+  │   ├── AddNoteModal.tsx    # Modal for creating new notes
+  │   ├── EditNoteModal.tsx   # Modal for editing existing notes
+  │   ├── Navigation.tsx      # Top navigation bar
+  │   ├── NoteCard.tsx        # Individual note card display
+  │   └── ProtectedRoute.tsx  # Route wrapper for authentication
+  ├── pages/               # Page components
+  │   ├── About.tsx          # About page
+  │   ├── Account.tsx        # User account page
+  │   ├── Login.tsx          # Login page
+  │   ├── Notes.tsx          # Main notes dashboard
+  │   └── Signup.tsx         # Registration page
+  ├── store/               # Redux store configuration
+  │   ├── slices/
+  │   │   ├── authSlice.ts   # Authentication state
+  │   │   └── notesSlice.ts  # Notes state
+  │   ├── hooks.ts           # Typed Redux hooks
+  │   └── store.ts           # Store configuration
+  ├── App.tsx              # Main app component with routing
+  ├── main.tsx             # Application entry point
+  └── index.css            # Global styles
 ```
 
 ## Design Decisions & Trade-offs
