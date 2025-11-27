@@ -135,8 +135,7 @@ If successful, your terminal prompt will look like:
 
 ```bash
 
-( use pip install -r requirements.txt if the file is present.)
-otherwise first create then add this file into it
+**Use pip install -r requirements.txt if the file exists. Otherwise, create the file first and then add it.**
 fastapi==0.115.4
 uvicorn[standard]==0.32.0
 pydantic==2.9.2
@@ -149,7 +148,7 @@ python-multipart==0.0.9
 dnspython==2.7.0
 watchfiles==1.1.0
 
-if you face issue still then check it
+**If you still face issues, check it**
 bcrypt==4.0.1
 email-validator==2.3.0
 pydantic-settings==2.12.0
