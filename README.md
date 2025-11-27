@@ -275,3 +275,29 @@ The frontend expects the following data structures:
   created_on: string (ISO date)
 }
 ```
+
+## Database Model Theory
+#### USER
+```typescript
+{
+  user_id
+  user_name
+  user_email
+  password
+  created_on
+  last_update
+}
+```
+
+#### NOTES
+```typescript
+{
+  note_id
+  note_title
+  note_content 
+  created_on
+  last_update
+}
+```
+
+
