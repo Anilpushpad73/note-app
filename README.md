@@ -1,6 +1,38 @@
 # Keep Notes - Note Taking Application
 
 A modern, feature-rich note-taking application built with React, Redux, and Framer Motion. This application provides a clean, intuitive interface for creating, editing, and managing notes with a rich text editor.
+## All screenshoot:
+
+#### signup
+<div>
+   <img src="https://drive.google.com/uc?id=1U00SpyYxnJNPn5LDO6Z3L7vEeT89eud4" alt="typescript" />
+</div>
+
+#### signin
+<div>
+   <img src="https://drive.google.com/uc?id=1URo_po-Ld3RfWcLxfKPXiM0gDF3VpSYf" alt="typescript" />
+</div>
+
+#### note
+<div>
+   <img src="https://drive.google.com/uc?id=1Q8RptQuMXinYPrE_zmJAS1R7enj37gyx" alt="typescript" />
+</div>
+
+#### Editnote
+<div>
+   <img src="https://drive.google.com/uc?id=1QEmcO9zyeGx-iFvH92DbLm9XGHlCv-Gb" alt="typescript" />
+</div>
+
+#### signup
+<div>
+   <img src="https://drive.google.com/uc?id=1U00SpyYxnJNPn5LDO6Z3L7vEeT89eud4" alt="typescript" />
+</div>
+
+#### signup
+<div>
+   <img src="https://drive.google.com/uc?id=1U00SpyYxnJNPn5LDO6Z3L7vEeT89eud4" alt="typescript" />
+</div>
+
 
 ## Features
 
