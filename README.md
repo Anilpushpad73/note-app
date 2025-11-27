@@ -18,7 +18,13 @@ A modern, feature-rich note-taking application built with React, Redux, and Fram
 - **React 18.3.1** - UI library
 - **TypeScript 5.5.3** - Type safety
 - **Vite 5.4.2** - Build tool and dev server
-
+### Backend Framework & library
+- **Python 3.10  
+- **FastAPI  
+- **PostgreSQL  
+- **SQLAlchemy (ORM)  
+- **Pydantic (data validation)
+  
 ### State Management & Data Fetching
 - **Redux Toolkit (@reduxjs/toolkit)** - State management
 - **React Redux** - React bindings for Redux
