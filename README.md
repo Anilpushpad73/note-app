@@ -5,37 +5,35 @@ A modern, feature-rich note-taking application built with React, Redux, and Fram
 
 
 
-#### signup
+
 <div>
      <h2 align="center">signup</h2>
    <img src="https://drive.google.com/uc?id=1U00SpyYxnJNPn5LDO6Z3L7vEeT89eud4" alt="typescript" />
 </div>
 
-#### signin
+
 <div>
-    <h2 align="center">signin</h2>
+    <h2 align="center">Signin</h2>
    <img src="https://drive.google.com/uc?id=1URo_po-Ld3RfWcLxfKPXiM0gDF3VpSYf" alt="typescript" />
 </div>
 
-#### note
 <div>
    <h2 align="center">Notes</h2>
    <img src="https://drive.google.com/uc?id=1Q8RptQuMXinYPrE_zmJAS1R7enj37gyx" alt="typescript" />
 </div>
 
-#### Editnote
+
 <div>
   <h2 align="center">Editnote</h2>
    <img src="https://drive.google.com/uc?id=1QEmcO9zyeGx-iFvH92DbLm9XGHlCv-Gb" alt="typescript" />
 </div>
 
-#### About
 <div>
   <h2 align="center">About</h2>
    <img src="https://drive.google.com/uc?id=15MiRWj9AsJLlu0i7ilLJEm91jeEpSl9y" alt="typescript" />
 </div>
 
-#### Account
+
 <div>
     <h2 align="center">Account</h2>
    <img src="https://drive.google.com/uc?id=1X3ma3iG_BaW7mU4XoKTKVvFRE3RQtDri" alt="typescript" />
