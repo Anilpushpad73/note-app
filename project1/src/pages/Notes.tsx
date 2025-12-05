@@ -7,8 +7,8 @@ import NoteCard from '../components/NoteCard';
 import AddNoteModal from '../components/AddNoteModal';
 import EditNoteModal from '../components/EditNoteModal';
 import { Note } from '../store/slices/notesSlice';
-import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import axiosInstance from '../api/axiosInstance';
+
 const API_BASE = import.meta.env.VITE_API_URL
 const Notes = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
@@ -17,25 +17,20 @@ const Notes = () => {
   const dispatch = useAppDispatch();
   const { notes, loading } = useAppSelector((state) => state.notes);
   const { user, token } = useAppSelector((state) => state.auth);
-  const location = useLocation();
 
   useEffect(() => {
     fetchNotes();
-  }, [location.pathname]);
-
-  const handleSuccess = () => {
-  fetchNotes();  // refresh list every time add/edit completes
-};
-
-
+  }, []);
+  
   const fetchNotes = async () => {
     dispatch(setLoading(true));
     try {
-      const response = await axios.get(`${API_BASE}/api/notes/`, {
+      const response = await axiosInstance.get(`${API_BASE}/api/notes`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(setNotes(response.data.notes));
     } catch (error) {
+  
       console.error('Failed to fetch notes:', error);
       dispatch(setNotes([]));
     }
@@ -105,7 +100,6 @@ const Notes = () => {
         <AddNoteModal
           isOpen={isAddModalOpen}
           onClose={() => setIsAddModalOpen(false)}
-          onSuccess={handleSuccess}
         />
 
         {selectedNote && (
@@ -116,7 +110,6 @@ const Notes = () => {
               setSelectedNote(null);
             }}
             note={selectedNote}
-            onSuccess={handleSuccess}
           />
         )}
       </div>

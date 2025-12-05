@@ -5,16 +5,16 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { addNote} from '../store/slices/notesSlice';
-import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import axiosInstance from '../api/axiosInstance';
 const API_BASE = import.meta.env.VITE_API_URL
 
 interface AddNoteModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSuccess: () => void; // <-- note parameter
 }
-const AddNoteModal = ({ isOpen, onClose, onSuccess }: AddNoteModalProps) => {
+
+const AddNoteModal = ({ isOpen, onClose }: AddNoteModalProps) => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -27,25 +27,23 @@ const handleSubmit = async (e: React.FormEvent) => {
   if (!title.trim() || !content.trim()) return;
 
   setLoading(true);
-
-  // Close modal immediately after clicking add
   onClose();
 
   try {
-    const response = await axios.post(`${API_BASE}/api/notes/`, {
+    const response = await axiosInstance.post(`${API_BASE}/api/notes`, {
       note_title: title,
       note_content: content,
     }, {
       headers: { Authorization: `Bearer ${token}` },
     });
-
-    dispatch(addNote(response.data.note));
-    onSuccess(); // update notes list
-    onClose();
-    navigate("/");
+    if (response.data) {
+            dispatch(addNote(response.data));
+            onClose();
+          } else {
+            console.error('No note returned from API:', response.data);
+          }
   } catch (error) {
     console.error('Failed to create note:', error);
-    // Optionally show error toast here
   } finally {
     setTitle('');
     setContent('');

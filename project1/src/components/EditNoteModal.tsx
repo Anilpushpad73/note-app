@@ -6,17 +6,16 @@ import 'react-quill/dist/quill.snow.css';
 import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { updateNote, deleteNote } from '../store/slices/notesSlice';
 import { Note } from '../store/slices/notesSlice';
-import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import axiosInstance from '../api/axiosInstance';
 const API_BASE = import.meta.env.VITE_API_URL
 interface EditNoteModalProps {
   isOpen: boolean;
   onClose: () => void;
   note: Note;
-  onSuccess: () => void;
 }
 
-const EditNoteModal = ({ isOpen, onClose, note, onSuccess }: EditNoteModalProps) => {
+const EditNoteModal = ({ isOpen, onClose, note}: EditNoteModalProps) => {
   const navigate = useNavigate();
   const [title, setTitle] = useState(note.note_title);
   const [content, setContent] = useState(note.note_content);
@@ -42,12 +41,14 @@ const EditNoteModal = ({ isOpen, onClose, note, onSuccess }: EditNoteModalProps)
   const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title.trim() || !content.trim()) return;
-
+    if (!note || !note.note_id) {
+    console.error('No note selected for update!');
+    return;
+  }
     setLoading(true);
-    onClose();
     try {
-      const response = await axios.put(
-        `${API_BASE}/api/notes/${note.note_id}/`,
+      const response = await axiosInstance.put(
+        `${API_BASE}/api/notes/${note.note_id}`,
         {
           note_title: title,
           note_content: content,
@@ -56,12 +57,13 @@ const EditNoteModal = ({ isOpen, onClose, note, onSuccess }: EditNoteModalProps)
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-
-      dispatch(updateNote(response.data.note));
       
-      onSuccess();
-      onClose();
-      navigate("/");
+      if (response.data) {
+        dispatch(updateNote(response.data));
+        onClose();
+      } else {
+        console.error('No note returned from API:', response.data);
+      }
     } catch (error) {
       console.error('Failed to update note:', error);
     } finally {
@@ -74,13 +76,12 @@ const EditNoteModal = ({ isOpen, onClose, note, onSuccess }: EditNoteModalProps)
 
     setLoading(true);
     try {
-      await axios.delete(`${API_BASE}/api/notes/${note.note_id}/`, {
+      await axiosInstance.delete(`${API_BASE}/api/notes/${note.note_id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
       dispatch(deleteNote(note.note_id));
       onClose();
-      onSuccess();
     } catch (error) {
       console.error('Failed to delete note:', error);
     } finally {
@@ -115,7 +116,7 @@ const EditNoteModal = ({ isOpen, onClose, note, onSuccess }: EditNoteModalProps)
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed inset-0 z-50 bg-pink-300 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-pink-200 flex items-center justify-center p-4"
           >
             <div className="bg-pink-300 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden">
               <div className="flex items-center justify-between p-6 border-b">

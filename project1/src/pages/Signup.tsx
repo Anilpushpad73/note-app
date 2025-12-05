@@ -57,9 +57,9 @@ const Signup = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-pink-300 rounded-2xl shadow-xl p-8 w-full max-w-md"
+        className="bg-pink-300 rounded-2xl shadow-xl pr-8 pl-8 pb-4 mt-12 w-full max-w-md"
       >
-        <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Sign up</h2>
+        <h2 className="text-3xl font-bold text-gray-800 mt-2 text-center">Sign up</h2>
 
         {error && (
           <motion.div

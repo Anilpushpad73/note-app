@@ -11,7 +11,7 @@ const Navigation = () => {
   const handleLogout = () => {
     dispatch(logout());
   };
-
+  console.log('Current ', isAuthenticated);
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}

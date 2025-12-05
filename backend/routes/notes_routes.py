@@ -4,10 +4,12 @@ from utils.dependencies import get_current_user
 from db import get_notes_coll
 from datetime import datetime
 import uuid
+from pymongo import ReturnDocument
+
 
 router = APIRouter()
 
-@router.get("/", response_model=dict)
+@router.get("", response_model=dict)
 async def list_notes(current_user = Depends(get_current_user)):
     notes_coll = get_notes_coll()  # <- use getter
     user_id = current_user["user_id"]
@@ -25,7 +27,7 @@ async def list_notes(current_user = Depends(get_current_user)):
     return {"notes": results}
 
 
-@router.post("/", response_model=NoteResponse, status_code=status.HTTP_201_CREATED)
+@router.post("", response_model=NoteResponse, status_code=status.HTTP_201_CREATED)
 async def create_note(payload: NoteCreate, current_user = Depends(get_current_user)):
     notes_coll = get_notes_coll()  # <- use getter
     user_id = current_user["user_id"]
@@ -40,8 +42,15 @@ async def create_note(payload: NoteCreate, current_user = Depends(get_current_us
         "last_update": now,
         "created_on": now,
     }
+    doc_response = {
+        "note_id": note_id,
+        "note_title": payload.note_title,
+        "note_content": payload.note_content,
+        "last_update": now,
+        "created_on": now,
+    }
     await notes_coll.insert_one(doc)
-    return {"note": doc}
+    return doc_response
 
 
 @router.put("/{note_id}", response_model=NoteResponse)
@@ -57,11 +66,18 @@ async def update_note(note_id: str, payload: NoteCreate, current_user = Depends(
             "note_content": payload.note_content,
             "last_update": now
         }},
-        return_document=True
+        return_document=ReturnDocument.AFTER
     )
     if not result:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Note not found")
-    return {"note": result}
+    result_resp = {
+        "note_id": result["note_id"],
+        "note_title": result["note_title"],
+        "note_content": result["note_content"],
+        "last_update": result.get("last_update"),
+        "created_on": result.get("created_on"),
+    }
+    return result_resp
 
 
 @router.delete("/{note_id}", status_code=status.HTTP_204_NO_CONTENT)
