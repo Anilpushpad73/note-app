@@ -180,6 +180,8 @@ run commands in a separate terminal
    ```bash
    cd backend
    python -m uvicorn main:app --reload --port 8000
+or
+   python main.py
    ```
    The backend will run on ` http://127.0.0.1:8000`
 
